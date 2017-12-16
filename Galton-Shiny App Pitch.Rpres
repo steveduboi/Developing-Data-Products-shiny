@@ -1,0 +1,64 @@
+Shiny Application and Reproducible Pitch
+========================================================
+author:Steve Dubois 
+date: December 16, 2017
+autosize: true
+
+Overview/Task
+========================================================
+transition: linear
+
+The Shiny Galton Predictor is a Shiny Web Application (app) that allows the user to predict an adult child's height based on the height of the child's parents.
+
+The app takes from the user inputs of the heights of both parents.
+And, by way of linear regression, the app will predict the height of the children.
+
+The app can be runs by clicking on the following URL: https://myfapp.shinyapps.io/galton/.
+
+The ui.R (user interface) and the server.R files can be found in a github repository at: https://github.com/steveduboi/steveduboi3.github.io.
+
+Summary of Galton Family Data
+========================================================
+```{r}
+
+library(UsingR)
+data(GaltonFamilies)
+summary(GaltonFamilies)
+```
+
+
+Plot containg regression line.
+========================================================
+```{r}
+
+library(ggplot2)
+ggplot(Galton ,aes(parent,child))+geom_point()+geom_smooth(method = "lm")
+
+
+```
+========================================================
+
+
+As one can see frmo the plot (with regression line) and  the summary table above, there is a positive correlation beteen child heighy and parent heights.  
+
+
+Sources:
+
+Galton's notebook, http://www.medicine.mcgill.ca/epidemiology/hanley/galton/notebook/, transcribed by Beverley Shipley in 2001.
+
+References
+
+Galton, F. (1886). Regression Towards Mediocrity in Hereditary Stature Journal of the Anthropological Institute, 15, 246-263
+
+
+
+========================================================
+
+
+THANK YOU.
+
+=================
+
+
+library(ggplot2)
+ggplot(GaltonFamilies ,aes(midparentHeigt,childHeight))+geom_point()+geom_smooth(method = "lm")
